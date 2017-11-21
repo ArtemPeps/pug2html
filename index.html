@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="pug2html">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <title>Pug Compiler</title>
+</head>
+
+<body class="container" ng-controller="mainController" taboverride>
+    <header>
+        <h1>PUG 2 HTML</h1>
+    </header>
+    <label for="input">Input pug template</label>
+    <textarea ng-model-options="{debounce:2000}" autofocus class="form-control" rows="12" ng-model="input" ng-change="requestHandler()"></textarea>
+    <label for="json">Edit variables</label>
+    <textarea ng-model-options="{debounce:2000}" class="form-control" rows="2" ng-model="json" ng-init="json='{}'" ng-change="requestHandler()"></textarea>
+    <label for="htmlOutput">HTML output</label>
+    <div pug2html-loader pug2html-render="{{html}}" pug2html-error="{{error}}" class="jumbotron" id="htmlOutput"></div>
+</body>
+<footer>
+</footer>
+<script src='main.js'></script>
+<script src='js/directives/pug2html-loader.js'></script>
+<script src='js/directives/pug2html-taboverride.js'></script>
+<script src='js/directives/pug2html-error.js'></script>
+<script src='js/directives/pug2html-render.js'></script>
+
+
+</html>
